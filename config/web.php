@@ -42,16 +42,18 @@ $config = [
             ],
         ],
         'db' => $db,
-        /*
+        
         'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'rules' => [
-            ],
-        ],
-        */
+             'enablePrettyUrl' => true,
+             'showScriptName' => false,
+             'rules' => [
+                'lien-he' => 'site/contact'
+             ],
+         ],
+        
     ],
     'params' => $params,
+    
 ];
 
 if (YII_ENV_DEV) {
