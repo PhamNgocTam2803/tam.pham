@@ -30,7 +30,17 @@ $config = [
             'class' => \yii\symfonymailer\Mailer::class,
             'viewPath' => '@app/mail',
             // send all mails to a file by default.
-            'useFileTransport' => true,
+            'useFileTransport' => false,
+            'transport' => [
+                'class' => 'Swift_SmtpTransport',
+                'host' => 'smtp.beready.academy', // Máy chủ SMTP của công ty
+                'username' => 'tam.pham@beready.academy', // Địa chỉ email của bạn
+                'password' => 'ngoctam97!', // Mật khẩu email
+                'port' => 587, // Cổng SMTP (hoặc 465 cho SSL)
+                'encryption' => 'tls', // Phương thức mã hóa (TLS hoặc SSL)
+                'scheme' => 'smtp', 
+            ],
+
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,

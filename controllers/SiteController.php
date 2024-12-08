@@ -106,7 +106,7 @@ class SiteController extends Controller
     public function actionContact()
     {
         $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
+        if ($model->load(Yii::$app->request->post()) && $model->contact($model->email)) {
            if ($model->saveToTamTable()){
             
             Yii::$app->session->setFlash('success','contactForm is save to database');
