@@ -1,4 +1,9 @@
 <?php
+// $host = $_ENV['MYSQL_HOST'] ?? 'localhost';
+// $dbname = $_ENV['MYSQL_DATABASE'] ?? 'tam.pham';
+// $username = $_ENV['MYSQL_USER'] ?? 'root';
+// $password = $_ENV['MYSQL_PASSWORD'] ?? '';
+
 $host = $_ENV['MYSQL_HOST'];
 $dbname = $_ENV['MYSQL_DATABASE'];
 $username = $_ENV['MYSQL_USER'];
