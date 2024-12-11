@@ -11,11 +11,12 @@ class TamTableController extends Controller
     /**
      * Lệnh này sẽ hiển thị toàn bộ dữ liệu từ bảng tamtable
      */
-    public function actionIndex()
+    public function actionFindEmail($email)
     {
         // Lấy tất cả dữ liệu từ bảng tamtable
-        $records = Tamtable::find()->all();
-
+        $records = Tamtable::find()->where(["email"=>$email])->all();
+        // echo $records->createCommand()->getRawSql();
+        // return ExitCode::OK;
         // Kiểm tra nếu có dữ liệu
         if (empty($records)) {
             echo "Không có dữ liệu trong bảng tamtable.\n";
