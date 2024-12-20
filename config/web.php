@@ -33,11 +33,11 @@ $config = [
             'useFileTransport' => false,
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
-                'host' => 'smtp.beready.academy', // Máy chủ SMTP của công ty
+                'host' => 'smtp.gmail.com', // Máy chủ SMTP của công ty
                 'username' => 'tam.pham@beready.academy', // Địa chỉ email của bạn
-                'password' => 'ngoctam97!', // Mật khẩu email
-                'port' => 587, // Cổng SMTP (hoặc 465 cho SSL)
-                'encryption' => 'tls', // Phương thức mã hóa (TLS hoặc SSL)
+                'password' => $_ENV['MAIL_PASSWORD'], // App password email
+                'port' => 465, // Cổng SMTP (hoặc 465 cho SSL)
+                'encryption' => 'ssl', // Phương thức mã hóa (TLS hoặc SSL)
                 'scheme' => 'smtp', 
             ],
 
