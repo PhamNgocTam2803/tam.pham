@@ -16,6 +16,13 @@ $config = [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'UML3Yaqcwpz-qs6C-GyC1Kz1oMRvMzGc',
         ],
+        'queue' => [
+            'class' => yii\queue\db\Queue::class,
+            'db' => 'db', // Dùng kết nối db
+            'tableName' => '{{%queue}}', // Tên bảng trong database
+            'channel' => 'default', // Kênh mặc định cho các job
+            'mutex' => yii\mutex\MysqlMutex::class, 
+        ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],

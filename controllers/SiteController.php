@@ -9,6 +9,7 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\jobs\SendEmail;
 
 class SiteController extends Controller
 {
@@ -106,8 +107,19 @@ class SiteController extends Controller
     public function actionContact()
     {
         $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->contact($model->email)) {
-           if ($model->saveToTamTable()){
+
+        if ($model->load(Yii::$app->request->post()) && $model->validate()){
+           
+            $job = new SendEmail([
+                'toEmail' => $model->email,
+                'subject' => $model->subject,
+                'body' => $model->body,
+                'name' => $model->name,
+            ]);
+            // push job vào trong queue
+            Yii::$app->queue->push($job);
+            
+            if ($model->saveToTamTable()){
             
             Yii::$app->session->setFlash('success','contactForm is save to database');
 

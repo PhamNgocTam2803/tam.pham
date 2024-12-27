@@ -65,7 +65,7 @@ class ContactForm extends Model
     }
     public function saveToTamTable(){
         $tamtb = new Tamtable();
-        $tamtb->name = $this->name;
+        $tamtb->name = $this->name; 
         $tamtb->email = $this->email;
         $tamtb->subject = $this->subject;
         $tamtb->body = $this->body;
